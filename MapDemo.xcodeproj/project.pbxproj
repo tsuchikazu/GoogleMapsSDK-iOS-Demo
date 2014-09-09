@@ -13,6 +13,8 @@
 		795C371219BE018800DA225B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 795C371019BE018800DA225B /* Main.storyboard */; };
 		795C371419BE018800DA225B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 795C371319BE018800DA225B /* Images.xcassets */; };
 		795C372019BE018800DA225B /* MapDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795C371F19BE018800DA225B /* MapDemoTests.swift */; };
+		795C372E19BF5DFB00DA225B /* SmallWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795C372D19BF5DFB00DA225B /* SmallWindow.xib */; };
+		F54523FF545C40A6A78F0E0E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2970C0C3238249588E09491C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2970C0C3238249588E09491C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		795C370419BE018800DA225B /* MapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		795C370819BE018800DA225B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		795C370919BE018800DA225B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		795C371919BE018800DA225B /* MapDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		795C371E19BE018800DA225B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		795C371F19BE018800DA225B /* MapDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDemoTests.swift; sourceTree = "<group>"; };
+		795C372A19BF4F4700DA225B /* MapDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		795C372D19BF5DFB00DA225B /* SmallWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallWindow.xib; sourceTree = "<group>"; };
+		F40B51FBA3F34E2EBCE4C867 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54523FF545C40A6A78F0E0E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +69,8 @@
 				795C370619BE018800DA225B /* MapDemo */,
 				795C371C19BE018800DA225B /* MapDemoTests */,
 				795C370519BE018800DA225B /* Products */,
+				F40B51FBA3F34E2EBCE4C867 /* Pods.xcconfig */,
+				9DFC4CD760DC4BEC934207DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +92,8 @@
 				795C371319BE018800DA225B /* Images.xcassets */,
 				795C370B19BE018800DA225B /* MapDemo.xcdatamodeld */,
 				795C370719BE018800DA225B /* Supporting Files */,
+				795C372A19BF4F4700DA225B /* MapDemo-Bridging-Header.h */,
+				795C372D19BF5DFB00DA225B /* SmallWindow.xib */,
 			);
 			path = MapDemo;
 			sourceTree = "<group>";
@@ -112,6 +123,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9DFC4CD760DC4BEC934207DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2970C0C3238249588E09491C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 795C372319BE018800DA225B /* Build configuration list for PBXNativeTarget "MapDemo" */;
 			buildPhases = (
+				D3988EA127564B1183962A46 /* Check Pods Manifest.lock */,
 				795C370019BE018800DA225B /* Sources */,
 				795C370119BE018800DA225B /* Frameworks */,
 				795C370219BE018800DA225B /* Resources */,
+				2FABDB8F45D34B92AC23FEAD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,6 +215,7 @@
 			files = (
 				795C371219BE018800DA225B /* Main.storyboard in Resources */,
 				795C371419BE018800DA225B /* Images.xcassets in Resources */,
+				795C372E19BF5DFB00DA225B /* SmallWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +227,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FABDB8F45D34B92AC23FEAD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3988EA127564B1183962A46 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		795C370019BE018800DA225B /* Sources */ = {
@@ -326,23 +381,30 @@
 		};
 		795C372419BE018800DA225B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F40B51FBA3F34E2EBCE4C867 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MapDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MapDemo/MapDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		795C372519BE018800DA225B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F40B51FBA3F34E2EBCE4C867 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MapDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MapDemo/MapDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -399,6 +461,7 @@
 				795C372519BE018800DA225B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		795C372619BE018800DA225B /* Build configuration list for PBXNativeTarget "MapDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +470,7 @@
 				795C372819BE018800DA225B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -13,9 +13,23 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    var services: AnyObject?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
+        let gApiKey: String? = "AIzaSyDqZ9L69_W3gF8X0GViI9W0D4zR5wKe-mc"
+        
+        if gApiKey == nil {
+            let bundleId = NSBundle.mainBundle().bundleIdentifier
+            var format = "Configure APIKey inside GoogleMapAPIKey.h for your "
+            "bundle `\(bundleId)`, see README.GoogleMapsSDKDemos for more information"
+            NSException(name:"AppDelegate",reason:format,userInfo:nil).raise()
+            
+            
+        }
+        GMSServices.provideAPIKey(gApiKey)
+        self.services = GMSServices.sharedServices()
         // Override point for customization after application launch.
         return true
     }
