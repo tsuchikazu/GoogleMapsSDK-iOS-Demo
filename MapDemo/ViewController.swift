@@ -41,6 +41,10 @@ class ViewController: UIViewController {
         overlay.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0.5)
         self.view.addSubview(overlay)
         
+        
+        var topLevelObjects: NSArray = NSBundle.mainBundle().loadNibNamed("SmallWindow", owner: self, options: nil)
+        var smallWindowView = topLevelObjects[0] as UIView
+        self.view.addSubview(smallWindowView);
     }
 
     override func didReceiveMemoryWarning() {
