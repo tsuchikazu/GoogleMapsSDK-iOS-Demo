@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     let overlayHeight: CGFloat = 140
     var mapView: GMSMapView?
                             
+    @IBOutlet weak var googleMapView: GMSMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,11 +21,11 @@ class ViewController: UIViewController {
         // coordinate -33.86,151.20 at zoom level 6.
         var camera: GMSCameraPosition =
             GMSCameraPosition.cameraWithLatitude(-33.86, longitude:151.20, zoom:6);
-        self.mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        self.mapView = GMSMapView.mapWithFrame(CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), camera: camera)
         self.mapView!.settings.myLocationButton = true;
         self.mapView!.myLocationEnabled = true;
         self.mapView!.padding = UIEdgeInsets(top: 0, left: 0, bottom: overlayHeight, right: 0)
-        self.view = self.mapView!;
+        self.googleMapView = mapView!
         
         // Creates a marker in the center of the map.
         var marker = GMSMarker()
@@ -34,17 +36,17 @@ class ViewController: UIViewController {
         marker.map = self.mapView;
         
         
-        var overlayFrame: CGRect = CGRect(x: 0, y: -overlayHeight, width: 0, height: overlayHeight)
+        var overlayFrame: CGRect = CGRect(x: 0, y: self.view.frame.size.height - 100, width: self.view.frame.size.width, height: 100)
         var overlay = UIView(frame: overlayFrame)
         overlay.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth;
         
-        overlay.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0.5)
+        overlay.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 1)
         self.view.addSubview(overlay)
         
-        
-        var topLevelObjects: NSArray = NSBundle.mainBundle().loadNibNamed("SmallWindow", owner: self, options: nil)
-        var smallWindowView = topLevelObjects[0] as UIView
-        self.view.addSubview(smallWindowView);
+//        
+//        var topLevelObjects: NSArray = NSBundle.mainBundle().loadNibNamed("SmallWindow", owner: self, options: nil)
+//        var smallWindowView = topLevelObjects[0] as UIView
+//        self.view.addSubview(smallWindowView);
     }
 
     override func didReceiveMemoryWarning() {
