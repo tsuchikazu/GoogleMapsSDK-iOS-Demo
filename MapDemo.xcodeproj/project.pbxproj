@@ -14,6 +14,8 @@
 		795C371419BE018800DA225B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 795C371319BE018800DA225B /* Images.xcassets */; };
 		795C372019BE018800DA225B /* MapDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795C371F19BE018800DA225B /* MapDemoTests.swift */; };
 		795C372E19BF5DFB00DA225B /* SmallWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795C372D19BF5DFB00DA225B /* SmallWindow.xib */; };
+		795C373019C0901200DA225B /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795C372F19C0901200DA225B /* DetailCollectionViewCell.swift */; };
+		795C373219C090B400DA225B /* DetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795C373119C090B400DA225B /* DetailCollectionViewCell.xib */; };
 		F54523FF545C40A6A78F0E0E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2970C0C3238249588E09491C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		795C371F19BE018800DA225B /* MapDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDemoTests.swift; sourceTree = "<group>"; };
 		795C372A19BF4F4700DA225B /* MapDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		795C372D19BF5DFB00DA225B /* SmallWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallWindow.xib; sourceTree = "<group>"; };
+		795C372F19C0901200DA225B /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		795C373119C090B400DA225B /* DetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		F40B51FBA3F34E2EBCE4C867 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +93,8 @@
 				795C370919BE018800DA225B /* AppDelegate.swift */,
 				795C370E19BE018800DA225B /* ViewController.swift */,
 				795C371019BE018800DA225B /* Main.storyboard */,
+				795C372F19C0901200DA225B /* DetailCollectionViewCell.swift */,
+				795C373119C090B400DA225B /* DetailCollectionViewCell.xib */,
 				795C371319BE018800DA225B /* Images.xcassets */,
 				795C370B19BE018800DA225B /* MapDemo.xcdatamodeld */,
 				795C370719BE018800DA225B /* Supporting Files */,
@@ -216,6 +222,7 @@
 				795C371219BE018800DA225B /* Main.storyboard in Resources */,
 				795C371419BE018800DA225B /* Images.xcassets in Resources */,
 				795C372E19BF5DFB00DA225B /* SmallWindow.xib in Resources */,
+				795C373219C090B400DA225B /* DetailCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +276,7 @@
 				795C370F19BE018800DA225B /* ViewController.swift in Sources */,
 				795C370A19BE018800DA225B /* AppDelegate.swift in Sources */,
 				795C370D19BE018800DA225B /* MapDemo.xcdatamodeld in Sources */,
+				795C373019C0901200DA225B /* DetailCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
