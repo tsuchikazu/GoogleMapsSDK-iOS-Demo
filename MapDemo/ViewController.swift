@@ -22,44 +22,32 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         // coordinate -33.86,151.20 at zoom level 6.
         var camera: GMSCameraPosition =
             GMSCameraPosition.cameraWithLatitude(-33.86, longitude:151.20, zoom:6);
-//        self.googleMapView.camera = camera
-//        var mapView: GMSMapView = GMSMapView.mapWithFrame(CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), camera: camera)
+        self.googleMapView.camera = camera
         self.googleMapView.settings.myLocationButton = true
         self.googleMapView.myLocationEnabled = true
         self.googleMapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: overlayHeight, right: 0)
         self.googleMapView.addSubview(detailCollectionView)
-//        self.googleMapView = mapView
         
         // Creates a marker in the center of the map.
         var marker = GMSMarker()
-
         marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
         marker.title = "Sydney";
         marker.snippet = "Australia";
-//        marker.map = mapView;
+        marker.map = self.googleMapView
         
         
-//        var overlayFrame: CGRect = CGRect(x: 0, y: self.view.frame.size.height - 100, width: self.view.frame.size.width, height: 100)
-//        var overlay = UIView(frame: overlayFrame)
-//        overlay.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth;
-//        
-//        overlay.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 1)
-//        self.view.addSubview(overlay)
-        
-        self.detailCollectionView.dataSource = self;
-        self.detailCollectionView.delegate = self;
         // STCustomCollectionView.xibを指定して（.xibは省略）、UINibオブジェクトを生成
         var nib: UINib = UINib(nibName: "DetailCollectionViewCell", bundle: nil)
         // UICollectionViewに項目表示に使うセルとして登録
         self.detailCollectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
         self.detailCollectionView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-//        self.detailCollectionView.setCollectionViewLayout(DetailCollectionViewLayout(), animated: true)
         
-//        
-//        var topLevelObjects: NSArray = NSBundle.mainBundle().loadNibNamed("SmallWindow", owner: self, options: nil)
-//        var smallWindowView = topLevelObjects[0] as UIView
-//        self.view.addSubview(smallWindowView);
+        self.detailCollectionView.dataSource = self;
+        self.detailCollectionView.delegate = self;
+
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,6 +88,21 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         }
 
         return cell
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        for cell in self.detailCollectionView.visibleCells() {
+            var cell = cell as UICollectionViewCell
+            var offset = self.detailCollectionView.contentOffset
+            
+            var centerX = self.view.frame.size.width / 2
+            var nowCellX = cell.frame.origin.x - offset.x
+            var nowCellLeftX = nowCellX + cell.frame.width
+            if nowCellX < centerX && centerX < nowCellLeftX {
+                var index = self.detailCollectionView.indexPathForCell(cell as UICollectionViewCell)
+                println(index)
+            }
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
