@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let overlayHeight: CGFloat = 140
-
+    var markers: [GMSMarker] = []
                             
     @IBOutlet weak var googleMapView: GMSMapView!
     @IBOutlet weak var detailCollectionView: UICollectionView!
@@ -29,11 +29,21 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         self.googleMapView.addSubview(detailCollectionView)
         
         // Creates a marker in the center of the map.
-        var marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-        marker.title = "Sydney";
-        marker.snippet = "Australia";
-        marker.map = self.googleMapView
+        //        var locations = []
+        var location1 = ["x":-33.86, "y":150.20]
+        var location2 = ["x":-33.86, "y":151.20]
+        var location3 = ["x":-33.86, "y":152.20]
+        
+        var locations: [Dictionary<String,Double>] = [location1, location2, location3]
+        for (index, location) in enumerate(locations) {
+            var marker = GMSMarker()
+            marker.position = CLLocationCoordinate2DMake(location["x"]!, location["y"]!)
+            marker.title = "Sydney" + index.description
+            marker.snippet = "Australia"
+            marker.map = self.googleMapView
+            
+            self.markers.append(marker)
+        }
         
         
         // STCustomCollectionView.xibを指定して（.xibは省略）、UINibオブジェクトを生成
@@ -100,7 +110,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
             var nowCellLeftX = nowCellX + cell.frame.width
             if nowCellX < centerX && centerX < nowCellLeftX {
                 var index = self.detailCollectionView.indexPathForCell(cell as UICollectionViewCell)
-                println(index)
+                println(index?.row)
+                self.googleMapView.selectedMarker = self.markers[index!.row]
             }
         }
     }
