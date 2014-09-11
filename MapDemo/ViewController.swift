@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let overlayHeight: CGFloat = 140
 
                             
@@ -22,6 +22,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         // coordinate -33.86,151.20 at zoom level 6.
         var camera: GMSCameraPosition =
             GMSCameraPosition.cameraWithLatitude(-33.86, longitude:151.20, zoom:6);
+//        self.googleMapView.camera = camera
 //        var mapView: GMSMapView = GMSMapView.mapWithFrame(CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), camera: camera)
         self.googleMapView.settings.myLocationButton = true
         self.googleMapView.myLocationEnabled = true
@@ -51,6 +52,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         var nib: UINib = UINib(nibName: "DetailCollectionViewCell", bundle: nil)
         // UICollectionViewに項目表示に使うセルとして登録
         self.detailCollectionView.registerNib(nib, forCellWithReuseIdentifier: "Cell")
+        self.detailCollectionView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
 //        self.detailCollectionView.setCollectionViewLayout(DetailCollectionViewLayout(), animated: true)
         
 //        
@@ -103,6 +105,23 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
+    
+    // セルの大きさ
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.size.width, height: 70)
+    }
+    // 周りの間
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    // セルの間
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    // よくわからん
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+//        return 100
+//    }
     
 }
 
